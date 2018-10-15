@@ -71,7 +71,7 @@ $result = mysqli_query($conn,$sql)
                   <td><?php echo $row['address'] ?></td>
                   <td><?php echo $row['upload_id'] ?></td>
                   <td><a class="btn btn-warning" href="edit_assistant.php ? id=<?php echo $row['id']; ?>">Edit</a>
-                  <a href='delete_assistant.php? id=<?php echo $row['id'];?>'><input type="button" onclick="return confirm('Are you sure?')" value="Delete"/> </a>
+                  <a href='delete_assistant.php? id=<?php echo $row['id'];?>'><input class="btn btn-danger" type="button" onclick="return confirm('Are you sure?')" value="Delete"/> </a>
                 </td>
                 </tr>
                 <?php } ?>

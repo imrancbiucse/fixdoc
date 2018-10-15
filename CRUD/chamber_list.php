@@ -47,7 +47,7 @@ $result = mysqli_query($conn,$sql)
           <h2>Chamber List</h2>
           <table class="table">
             <thead>
-                <th>Id</th>
+                <th>ID</th>
                 <th>Cham_Title</th>
                 <th>Cham_Address</th>
                 <th>Fees</th>
@@ -72,7 +72,7 @@ $result = mysqli_query($conn,$sql)
                   <td><?php echo $row['visit_time_to'] ?></td>
 
                   <td><a class="btn btn-warning" href="edit_chamber.php">Edit</a>
-                  <a href='delete_chamber.php? id=<?php echo $row['id'];?>'><input type="button" onclick="return confirm('Are you sure?')" value="Delete"/> </a>
+                  <a href='delete_chamber.php? id=<?php echo $row['id'];?>'><input class="btn btn-danger" type="button" onclick="return confirm('Are you sure?')" value="Delete"/> </a>
                 </td>
                 </tr>
                 <?php } ?>

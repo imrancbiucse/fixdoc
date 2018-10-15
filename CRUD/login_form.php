@@ -1,14 +1,14 @@
 <?php
 if( isset($_POST['mobile']) and isset($_POST['password']) ) {
-		include('connection.php'); 
-		$mobile=$_POST['mobile'];
+    include('connection.php'); 
+    $mobile=$_POST['mobile'];
     $pass=$_POST['password'];
     
     $mobile == 'mobile' && $pass=='password';
  
-		$result=mysqli_query( $conn, "SELECT * FROM login WHERE mobile='$mobile' AND password='$pass' ") or die("Could not execute query: " .mysqli_error($conn));
-		$row = mysqli_fetch_assoc($result);
-    if(($mobile=='username') || ($pass=='Password'))
+    $result=mysqli_query( $conn, "SELECT * FROM login WHERE mobile='$mobile' AND password='$pass' ") or die("Could not execute query: " .mysqli_error($conn));
+    $row = mysqli_fetch_assoc($result);
+    if(($mobile=='mobile') || ($pass=='password'))
     {
       echo"Login Successful";
     }
@@ -19,6 +19,7 @@ if( isset($_POST['mobile']) and isset($_POST['password']) ) {
 
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -25,13 +25,15 @@ $ass = mysqli_fetch_assoc($result);
 
   <title>Update Assistant</title>
 </head>
+
 <body style="background-color:silver">
   <div style="margin-top:50px"></div>
   <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8" style="background-color:white";><br><br>
+    
       <div>
-            <a class="btn btn-info" href="assistant_list.php">Assistant List</a>
+            <a class="btn btn-info" href="assistant_list.php">Back</a>
       </div>
 
       <div>

@@ -6,7 +6,14 @@ $id = $_GET['id'];
 
 $sql = "SELECT * FROM add_chamber WHERE id = $id";
 $result = mysqli_query($conn,$sql);
-$ass = mysqli_fetch_assoc($result);
+//$ass = mysqli_fetch_assoc($result);
+
+  //$result = mysqli_query($conn,$sql );
+  if( $result ){
+  while( $row = mysqli_fetch_assoc( $result ) ){
+  }
+}
+
 ?>
 
 
@@ -21,25 +28,25 @@ $ass = mysqli_fetch_assoc($result);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <title>Add Chamber</title>
+    <title>Update Chamber</title>
 
 
 </head>
 <body style="background-color:silver">
   <div style="margin-top:50px"></div>
-<div class="row">
+  <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8" style="background-color:white"><br><br>
 
     <div>
-          <a class="btn btn-info" href="chamber_list.php">Chamber List</a>
+          <a class="btn btn-info" href="chamber_list.php">Back</a>
     </div>
 
 
     <div>
         <h1 class="display-5 text-center my-3">Edit Chamber</h1>
             <div class="container">
-                <form action="update_chamber.php? id=<?php echo $id ?>" method="POST">
+                <form name="" action="update_chamber.php? id=<?php echo $id ?>" method="POST">
 
                     <div class="form-group">
                       <label for="chamber_title"><b>Chamber Title:</b></label>
@@ -64,12 +71,11 @@ $ass = mysqli_fetch_assoc($result);
                     </div>
                     </div><br>
 
-              </form><br>
 
-                <form class="form-inline" method="POST">
+                 <div class="form-inline" method="POST">
                   <div>
                     <label class="mr-3" for="fees"><b>Fees(BDT):</b></label><br>
-                    <input class="form-control mr-4 ml-3" type="text" name="fees">
+                    <input class="form-control mr-4 ml-3" type="text" name="fees" required>
                   </div>
 
                   <div>
@@ -81,8 +87,8 @@ $ass = mysqli_fetch_assoc($result);
                     <label for=patient_limit><b>Patient per day limit:</b></label><br>
                     <input class="form-control mr-3 ml-3" type="text" name="patient_limit">
                   </div>
-                </form>
-                <br>
+                 </div>
+                 <br>
 
                   <label for="visit_days"><b>Select Visit Days:</b></label><br>
 
@@ -132,7 +138,7 @@ $ass = mysqli_fetch_assoc($result);
                       <div>
                         <label for=visit_time><b>Select Visit Time:</b></label><br>
                       </div>
-                      <form class="form-inline">
+                      <div class="form-inline">
                       <div class="form-check-inline">
                           <input style="width:200px" type="time" name="TimeFrom" value="time" id="datetimepicker" onchange="getStartTime();">
                       </div>
@@ -142,11 +148,12 @@ $ass = mysqli_fetch_assoc($result);
                       <div class="form-check-inline">
                           <input style="width:200px" type="time" name="TimeTo" value="time" id="datetimepicker" onchange="getStartTime();">
                       </div>
-                    </form><br>
+                    </div><br>
                     </div>
-                    <form method="POST">
-                    <b style="padding-left:390px"><button type="submit" class="btn btn-default" name="save">Submit</button></b><br><br><br>
-                  </form>
+                    <div method="POST">
+                       <b style="padding-left:390px"><button type="submit" class="btn btn-default" name="save">Submit</button></b><br><br><br>
+                   </div>
+                  </form><br>
               </div>
           </div>
     </div><br><br>

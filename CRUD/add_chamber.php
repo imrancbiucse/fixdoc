@@ -2,10 +2,14 @@
 
 include_once'connection.php';
 
+//$tbl_name="add_chamber";
+//$day=$_POST['day'];
+//$sql="INSERT INTO $tbl_name(q1)VALUES('$q1')";
+
   if(isset($_POST['save']))
 {
     $sql = "INSERT INTO add_chamber (chamber_title,chamber_address ,fees,approx_time_patient,patient_per_day_limit,visit_days,visit_time_from,visit_time_to)
-    VALUES ('".$_POST["chamber_name"]."','".$_POST["chamber_address"]."','".$_POST["fees"]."','".$_POST["approx_time"]."','".$_POST["patient_limit"]."','".$_POST["visit_days"]."','".$_POST["TimeFrom"]."','".$_POST["TimeTo"]."')";
+    VALUES ('".$_POST["chamber_name"]."','".$_POST["chamber_address"]."','".$_POST["fees"]."','".$_POST["approx_time"]."','".$_POST["patient_limit"]."','".$_POST["day"]."','".$_POST["TimeFrom"]."','".$_POST["TimeTo"]."')";
 
     $result = mysqli_query($conn,$sql);
 
@@ -26,8 +30,8 @@ include_once'connection.php';
 
     <title>Add Chamber</title>
 
-
 </head>
+
 <body style="background-color:silver">
   <div style="margin-top:50px"></div>
 <div class="row">
@@ -56,20 +60,19 @@ include_once'connection.php';
 
                     <label for="assistant"><b>Assistant:</b></label>
                     <div class="dropdown">
-                        <button class="btn btn-lg dropdown-toggle" type="button" style="padding-left:30px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-lg dropdown-toggle" type="button" style="padding-left:30px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" >
                         Dropdown
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <button class="dropdown-item" type="button">assistant 1</button>
-                          <button class="dropdown-item" type="button">assistant 2</button>
-                          <button class="dropdown-item" type="button">assistant 3</button>
-                        </div>
+                          <button class="dropdown-item" type="button">chamber 1</button>
+                          <button class="dropdown-item" type="button">chamber 2</button>
+                          <button class="dropdown-item" type="button">chamber 3</button>
                     </div>
                     </div><br>
 
-              </form><br>
+              
 
-                <form class="form-inline" method="POST">
+                <div class="form-inline">
                   <div>
                     <label class="mr-3" for="fees"><b>Fees(BDT):</b></label><br>
                     <input class="form-control mr-4 ml-3" type="text" name="fees">
@@ -84,9 +87,9 @@ include_once'connection.php';
                     <label for=patient_limit><b>Patient per day limit:</b></label><br>
                     <input class="form-control mr-3 ml-3" type="text" name="patient_limit">
                   </div>
-                </form>
+                </div>
                 <br>
-
+              <div>
                   <label for="visit_days"><b>Select Visit Days:</b></label><br>
 
                     <div class="form-check-inline" style="padding-left:5px">
@@ -130,12 +133,12 @@ include_once'connection.php';
                        <input type="checkbox" class="form-check-input" name="day[]" value="saturday">Sat
                      </label>
                    </div><br><br>
-
+                </div>
                     <div>
                       <div>
                         <label for=visit_time><b>Select Visit Time:</b></label><br>
                       </div>
-                      <form class="form-inline">
+                      <div class="form-inline">
                       <div class="form-check-inline">
                           <input style="width:200px" type="time" name="TimeFrom" value="time" id="datetimepicker" onchange="getStartTime();">
                       </div>
@@ -145,11 +148,13 @@ include_once'connection.php';
                       <div class="form-check-inline">
                           <input style="width:200px" type="time" name="TimeTo" value="time" id="datetimepicker" onchange="getStartTime();">
                       </div>
-                    </form><br>
-                    </div>
-                    <form method="POST">
+                    </div><br> 
+                  
+                    <div>
                     <b style="padding-left:390px"><button type="submit" class="btn btn-default" name="save">Submit</button></b><br><br><br>
-                  </form>
+                    </div>
+                  </div>
+                  </form><br>
               </div>
           </div>
     </div><br><br>
